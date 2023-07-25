@@ -63,7 +63,7 @@ ROOT_URLCONF = 'cfehome.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [ BASE_DIR / 'realty'],
+        'DIRS': [ BASE_DIR / 'whimsi'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
