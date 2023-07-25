@@ -1,7 +1,22 @@
 {% extends 'templates/base.html' %}
 
 {% block content %}
-    <section>
-        <h2>Home!</h2>
+    <section class="h-screen w-full bg-cover mb-2 md:mb-4">
+        <div class="flex flex-col px-16 justify-center gap-12 bg-slate-800 w-full md:h-full shadow-md md:pb-52 bg-cover"> 
+            <div>
+                <h1 class="text-5xl text-center text-white uppercase tracking-widest">[Frase de landing page 10/10]</h1>
+            </div>
+            <div></div>
+            <div class="flex flex-row justify-center w-full bg-transparent md:bg-white md:shadow-md rounded-md py-3 px-5">
+                <div class="flex flex-col md:flex-row w-full items-center gap-4 md:gap-2">
+                    <div class="w-full md:w-1/4 md:h-full flex flex-col border border-gray-500 rounded-lg bg-white shadow-md py-2 px-5">
+                        <span class="text-xs text-gray-500">Pretensão</span>
+                        <span class="text-sm md:text-base text-gray-800">Comprar</span>
+                    </div>
+                    <input class="w-full h-14 md:h-full text-sm border border-gray-500 rounded-lg bg-white hover:border-gray-600 shadow-md px-5" type="search" placeholder="Digite o condomínio, região, bairro ou cidade.">
+                    <button class="w-full md:w-1/4 md:h-full transition-colors bg-slate-800 py-2 px-5 rounded-lg text-white shadow-md">Encontrar imóvel</button>
+                </div>
+            </div>
+        </div>
     </section>
 {% endblock %}
