@@ -26,10 +26,11 @@
         <div class="self-center h-1 w-32 bg-slate-600"></div>
     </div>
     <div class="container">
-        <div class="grid grid-cols-1 md:grid-cols-3 px-4 md:px-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 px-4 md:px-16 gap-12">
+            {% for property in last_properties %}
             <div class="flex flex-col w-full h-fit rounded-sm pb-4">
                 <a href="#">
-                <div class="overflow-hidden w-full h-3/4 md:h-3/5">
+               <div class="overflow-hidden w-full h-3/4 md:h-3/5">
                     <img class="w-full h-full object-cover" src="https://betaimages.lopes.com.br/realestate/sml/REB317225/highlinetatuape-saopaulo-tatuape-1-fachada.jpg">
                 </div>
                 <!-- Info -->
@@ -37,20 +38,29 @@
                     <div class="">
                         <div class="flex flex-col gap-2">
                             <div class="flex flex-row md:gap-2 gap-2 items-center">
-                                <p class="text-base text-stone-400">Cupecê, São Paulo</p>
+                                <p class="text-base text-stone-400">{{ property.propertyaddress.neighborhood}}, {{ property.propertyaddress.city}}</p>
                             </div>
-                            <p class="text-2xl font-normal text-stone-50 uppercase">Up Jardim Prudência</p>
-                            <p class="text-sm font-normal text-stone-200">Modernidade e comodidade estão sublinhados no jardim prudência.</p>
+                            <p class="text-2xl font-normal text-stone-300 uppercase">{{ property.title }}</p>
+                            <p class="text-base font-normal text-stone-400 line-clamp-2">{{ property.description }}</p>
                         </div>
                     </div>
-                    <div class="h-0.5 w-1/5 bg-stone-500"></div>
-                    <div class="flex flex-row gap-10 text-stone-50 text-sm">
-                        <div>18 a 40m2</div>
-                        <div>00 a 02 Dorms</div>
+                    <div class="h-0.5 w-1/5 bg-stone-400"></div>
+                    <div class="flex flex-row gap-10 text-stone-400 text-base">
+                        <div>{{ property.area_sqm}}m2</div>
+                        <div>{{ property.bedrooms }} Quarto(s)</div>
+                        {% if property.parking_lots %}
+                        <div>{{ property.parking_lots }} Vaga(s)</div>
+                        {% endif %}
                     </div>
-                </div>
+                    <div class="">
+                        <div class="font-semibold text-stone-300 text-base tracking-wide">
+                            R${{ property.price|floatformat:"2" }}
+                        </div>
+                    </div>
+                </div> 
                 </a>
             </div>
+            {% endfor %}
         </div>
     </div>
 </section>
