@@ -12,3 +12,6 @@ def home_view(request):
     }
     
     return render(request, 'templates/pages/home.html', context)
+
+def property_view(request):
+    return render(request, 'templates/pages/property.html', {})

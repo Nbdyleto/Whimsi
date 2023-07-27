@@ -14,11 +14,11 @@
                     <span class="text-sm md:text-base text-slate-800">Comprar</span>
                 </div>
                 <input class="w-full h-14 md:h-full text-sm border border-slate-500 rounded-sm bg-white hover:border-slate-600 shadow-md px-5" type="search" placeholder="Digite o condomínio, região, bairro ou cidade.">
-                <button class="w-full md:w-1/4 md:h-full transition-colors bg-stone-900 py-2 px-5 rounded-sm text-slate-200 shadow-md">Encontrar imóvel</button>
             </div>
         </div>
     </div>
 </section>
+
 <section class="w-full bg-slate-800 pt-10 md:pt-16 pb-12">
     <div class="flex flex-col justify-center text-center pt-12 pb-6">
         <h2 class="font-mono text-5xl text-white mb-4 uppercase">Lançamentos</h2>
@@ -26,7 +26,7 @@
         <div class="self-center h-1 w-32 bg-slate-600"></div>
     </div>
     <div class="container">
-        <div class="grid grid-cols-1 md:grid-cols-3 px-4 md:px-16 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 px-4 md:px-0 gap-12">
             {% for property in last_properties %}
             <div class="flex flex-col w-full h-fit rounded-sm pb-4">
                 <a href="#">
@@ -71,7 +71,7 @@
         <div class="self-center h-1 w-32 bg-slate-600"></div>
     </div>
     <div class="container flex flex-col">
-        <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-3 md:grid-rows-2 px-4 md:px-16 gap-12">
+        <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-3 md:grid-rows-2 px-4 md:px-0 gap-12">
             {% for highlighted_property in highlighted_properties %}
             <div class="flex flex-col w-full h-fit rounded-sm pb-4">
                 <a href="#">
