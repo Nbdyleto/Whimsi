@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class RealtyConfig(AppConfig):
+class WhimsiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'realty'
+    name = 'whimsi'

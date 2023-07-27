@@ -1,3 +1,8 @@
 from django.contrib import admin
+from .models import Property, PropertyAddress, PropertyFeature, PropertyImage, HighlightedProperty
 
-# Register your models here.
+admin.site.register(Property)
+admin.site.register(PropertyAddress)
+admin.site.register(PropertyFeature)
+admin.site.register(PropertyImage)
+admin.site.register(HighlightedProperty)
