@@ -2,7 +2,7 @@
 
 {% block content %}
 <section class="w-full">
-    <div class="flex flex-col px-16 justify-center gap-6 md:gap-12 bg-stone-800 w-full py-24 mt-[1px] h-screen"> 
+    <div class="flex flex-col px-16 justify-center gap-6 md:gap-12 bg-stone-800 w-full py-24 h-screen"> 
         <div>
             <h1 class="text-4xl text-center text-white uppercase tracking-widest">Encontre o lar que reflete sua essência</h1>
         </div>
@@ -61,7 +61,8 @@
         <div class="self-center h-1 w-32 bg-slate-600"></div>
     </div>
     <div class="container flex flex-col">
-        <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-3 md:grid-rows-2 px-4 md:px-16">
+        <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-3 md:grid-rows-2 px-4 md:px-16 gap-12">
+            {% for highlighted_property in highlighted_properties %}
             <div class="flex flex-col w-full h-fit rounded-sm pb-4">
                 <a href="#">
                 <div class="overflow-hidden w-full h-3/4 md:h-3/5">
@@ -72,19 +73,29 @@
                     <div class="">
                         <div class="flex flex-col gap-2">
                             <div class="flex flex-row md:gap-2 gap-2 items-center">
-                                <p class="text-base text-slate-700">Cupecê, São Paulo</p>
+                                <p class="text-base text-slate-700">{{ highlighted_property.property.propertyaddress.neighborhood}}, {{ highlighted_property.property.propertyaddress.city}}</p>
                             </div>
-                            <p class="text-2xl font-normal text-slate-900 uppercase">Up Jardim Prudência</p>
+                            <p class="text-2xl font-normal text-slate-900 uppercase">{{ highlighted_property.property.title }}</p>
+                            <p class="text-base font-normal text-slate-700 line-clamp-2">{{ highlighted_property.property.description }}</p>
                         </div>
                     </div>
                     <div class="h-0.5 w-1/5 bg-slate-600"></div>
-                    <div class="flex flex-row gap-10 text-slate-800 text-sm">
-                        <div>18 a 40m2</div>
-                        <div>00 a 02 Dorms</div>
+                    <div class="flex flex-row gap-10 text-slate-800 text-base">
+                        <div>{{ highlighted_property.property.area_sqm}}m2</div>
+                        <div>{{ highlighted_property.property.bedrooms }} Quarto(s)</div>
+                        {% if highlighted_property.property.parking_lots %}
+                        <div>{{ highlighted_property.property.parking_lots }} Vaga(s)</div>
+                        {% endif %}
+                    </div>
+                    <div class="">
+                        <div class="font-semibold text-slate-800 text-base tracking-wide">
+                            R${{ highlighted_property.property.price|floatformat:"2" }}
+                        </div>
                     </div>
                 </div>
                 </a>
             </div>
+            {% endfor %}
         </div>
         <div class="self-center">
             <button class="border-slate-800 border rounded-sm px-14 py-4 hover:bg-black hover:text-white duration-500">Explorar imóveis</button>
