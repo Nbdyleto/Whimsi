@@ -40,22 +40,25 @@
 
 <section class="w-full">
 	<div class="container">
-		<div class="grid grid-cols-4 gap-2">
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 			{% for property in properties %}
-			<div class="flex flex-col w-full h-fit rounded-sm pb-4 border border-zinc-400">
+			<div class="flex flex-col w-full h-fit rounded-sm">
                 <a href="">
-                <div class="overflow-hidden w-full h-3/4 md:h-3/5 px-6 pt-6">
-                    <img class="w-full h-full object-cover" src="https://betaimages.lopes.com.br/realestate/sml/REB317225/highlinetatuape-saopaulo-tatuape-1-fachada.jpg">
+                <div class="overflow-hidden w-full h-[550px] md:h-80">
+					{% if property.first_image.image %}
+                    <img class="w-full h-full object-cover" src="{{ property.first_image.image.url}}">
+					{% endif %}
                 </div>
                 <!-- Info -->
-                <div class="flex flex-col gap-4 py-6 md:py-4 px-6">
+                <div class="flex flex-col gap-4 py-6 md:py-4">
                     <div class="">
                         <div class="flex flex-col gap-2">
                             <div class="flex flex-row md:gap-2 gap-2 items-center">
                                 <p class="text-sm text-slate-600">{{ property.propertyaddress.neighborhood}}, {{ property.propertyaddress.city}}</p>
                             </div>
                             <p class="text-xl font-normal text-slate-800 uppercase">{{ property.title }}</p>
-                        </div>
+        					<div class="h-0.5 w-12 bg-slate-600"></div>
+						</div>
                     </div>
                     <div class="flex flex-row gap-10 text-slate-800 text-xs">
                         <div>{{ property.area_sqm}}m2</div>

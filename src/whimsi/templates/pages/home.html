@@ -37,8 +37,10 @@
             {% for property in last_properties %}
             <div class="flex flex-col w-full h-fit rounded-sm pb-4">
                 <a href="{% url 'property-detail-template' slug=property.slug %}">
-                <div class="overflow-hidden w-full h-3/4 md:h-3/5">
-                    <img class="w-full h-full object-cover" src="https://betaimages.lopes.com.br/realestate/sml/REB317225/highlinetatuape-saopaulo-tatuape-1-fachada.jpg">
+                <div class="overflow-hidden w-full h-[500px] md:h-96">
+                    {% if property.first_image.image %}
+                    <img class="w-full h-full object-cover" src="{{ property.first_image.image.url }}">
+                    {% endif %}
                 </div>
                 <!-- Info -->
                 <div class="flex flex-col gap-4 py-6 md:py-4 ">
@@ -82,8 +84,10 @@
             {% for highlighted_property in highlighted_properties %}
             <div class="flex flex-col w-full h-fit rounded-sm pb-4">
                 <a href="{% url 'property-detail-template' slug=highlighted_property.property.slug %}">
-                <div class="overflow-hidden w-full h-3/4 md:h-3/5">
-                    <img class="w-full h-full object-cover" src="https://betaimages.lopes.com.br/realestate/sml/REB317225/highlinetatuape-saopaulo-tatuape-1-fachada.jpg">
+                <div class="overflow-hidden w-full h-[500px] md:h-96">
+                    {% if highlighted_property.first_image.image %}
+                    <img class="w-full h-full object-cover" src="{{ highlighted_property.first_image.image.url }}">
+                    {% endif %}
                 </div>
                 <!-- Info -->
                 <div class="flex flex-col gap-4 py-6 md:py-4 ">

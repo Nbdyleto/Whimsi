@@ -1,11 +1,18 @@
 import requests
 
 from django.shortcuts import render
-from .models import Property, HighlightedProperty
+from .models import Property, HighlightedProperty, PropertyImage
 
 def home_view(request):
     last_properties = Property.objects.order_by('-created_at')[:3]
+    print('Last properties:')
+    for property in last_properties:
+        property.first_image = PropertyImage.objects.filter(property=property).first()
+    
     highlighted_properties = HighlightedProperty.objects.prefetch_related('property__propertyaddress').all()
+    print('Highlighted Properties:')
+    for property in highlighted_properties:
+        property.first_image = PropertyImage.objects.filter(property=property.property).first()
 
     context = {
         'last_properties': last_properties,
@@ -16,6 +23,10 @@ def home_view(request):
 
 def properties_template(request):
     properties = Property.objects.all()
+
+    for property in properties:
+        property.first_image = PropertyImage.objects.filter(property=property).first()
+
     context = {'properties': properties}
     return render(request, 'templates/pages/properties.html', context)
 
