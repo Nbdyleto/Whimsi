@@ -14,6 +14,11 @@ def home_view(request):
     
     return render(request, 'templates/pages/home.html', context)
 
+def properties_template(request):
+    properties = Property.objects.all()
+    context = {'properties': properties}
+    return render(request, 'templates/pages/properties.html', context)
+
 def property_detail_template(request, slug):
     api_url = f"http://127.0.0.1:8000/api/properties/{slug}/"
     response = requests.get(api_url)

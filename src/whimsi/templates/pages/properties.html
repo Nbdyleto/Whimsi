@@ -1,0 +1,81 @@
+{% extends 'templates/base.html' %}
+
+{% block content %}
+<main class="mt-6 mb-12">
+<section class="w-full">
+	<div class="container">
+		<div class="max-w-[150px] text-3xl text-slate-900 uppercase text-left">
+			Explorar Imóveis
+		</div>
+	</div>
+</section>
+
+<section class="w-full">
+	<div class="container">
+		<form action="" class="py-6">
+			<div class="flex flex-col md:flex-row gap-2">
+				<div class="relative z-0">
+					<input type="" name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 px-3 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" " />
+					<label class="px-3 absolute top-4 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-slate-800 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-slate-700 peer-focus:bg-white peer-focus:z-10 peer-focus:mx-2 peer-focus:px-1">Região</label>
+				</div>
+				<div class="relative z-0">
+					<input type="" name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 px-3 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" " />
+					<label class="px-3 absolute top-4 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-slate-800 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-slate-700 peer-focus:bg-white peer-focus:z-10 peer-focus:mx-2 peer-focus:px-1">Dormitórios</label>
+				</div>
+				<div class="relative z-0">
+					<input type="" name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 px-3 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" " />
+					<label class="px-3 absolute top-4 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-slate-800 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-slate-700 peer-focus:bg-white peer-focus:z-10 peer-focus:mx-2 peer-focus:px-1">Tipo de Imóvel</label>
+				</div>
+				<div class="relative z-0">
+					<input type="" name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 px-3 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" " />
+					<label class="px-3 absolute top-4 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-slate-800 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-slate-700 peer-focus:bg-white peer-focus:z-10 peer-focus:mx-2 peer-focus:px-1">Valor do Imóvel</label>
+				</div>
+				<button class="relative px-20 py-3 z-0 bg-black text-white rounded-md text-sm">
+					Buscar
+				</button>
+			</div>
+		</form>
+	</div>
+</section>
+
+<section class="w-full">
+	<div class="container">
+		<div class="grid grid-cols-4 gap-2">
+			{% for property in properties %}
+			<div class="flex flex-col w-full h-fit rounded-sm pb-4 border border-zinc-400">
+                <a href="">
+                <div class="overflow-hidden w-full h-3/4 md:h-3/5 px-6 pt-6">
+                    <img class="w-full h-full object-cover" src="https://betaimages.lopes.com.br/realestate/sml/REB317225/highlinetatuape-saopaulo-tatuape-1-fachada.jpg">
+                </div>
+                <!-- Info -->
+                <div class="flex flex-col gap-4 py-6 md:py-4 px-6">
+                    <div class="">
+                        <div class="flex flex-col gap-2">
+                            <div class="flex flex-row md:gap-2 gap-2 items-center">
+                                <p class="text-sm text-slate-600">{{ property.propertyaddress.neighborhood}}, {{ property.propertyaddress.city}}</p>
+                            </div>
+                            <p class="text-xl font-normal text-slate-800 uppercase">{{ property.title }}</p>
+                        </div>
+                    </div>
+                    <div class="flex flex-row gap-10 text-slate-800 text-xs">
+                        <div>{{ property.area_sqm}}m2</div>
+                        <div>{{ property.bedrooms }} Quarto(s)</div>
+                        {% if property.parking_lots %}
+                        <div>{{ property.parking_lots }} Vaga(s)</div>
+                        {% endif %}
+                    </div>
+                    <div class="">
+					<div class="font-semibold text-slate-800 text-base tracking-wide">
+                            R${{ property.price|floatformat:"2" }}
+                        </div>
+                    </div>
+                </div> 
+                </a>
+            </div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+</main>
+
+{% endblock %}
