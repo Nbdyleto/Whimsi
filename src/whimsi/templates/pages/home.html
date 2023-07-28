@@ -1,19 +1,26 @@
 {% extends 'templates/base.html' %}
 
 {% block content %}
-<section class="w-full">
-    <div class="flex flex-col px-16 justify-center gap-6 md:gap-12 bg-stone-800 w-full py-24 h-screen"> 
-        <div>
-            <h1 class="text-4xl text-center text-white uppercase tracking-widest">Encontre o lar que reflete sua essência</h1>
-        </div>
-        <div></div>
-        <div class="flex flex-row justify-center w-full bg-transparent md:bg-white md:shadow-md rounded-sm py-3 px-5">
-            <div class="flex flex-col md:flex-row w-full items-center gap-4 md:gap-2">
-                <div class="w-full md:w-1/4 md:h-full flex flex-col border border-slate-500 rounded-sm bg-white shadow-md py-2 px-5">
+
+<style>
+    .bg{
+        background: linear-gradient(rgba(30,41,59,0.9), rgba(41,37,36,0.7)), no-repeat center center fixed
+    url("https://images.unsplash.com/photo-1582407947304-fd86f028f716?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=996&q=80");
+        background-size: cover;
+    }
+</style>
+
+<section class="bg h-screen">
+    <div class="flex flex-col gap-24 h-full w-full items-center justify-end pb-40 container mx-auto">
+        <h1 class="text-5xl text-white uppercase tracking-widest">Encontre o lar que reflete sua essência</h1>
+        <div class="flex justify-center w-full bg-transparent md:bg-white md:shadow-md rounded-md py-4 px-5">
+            <div class="flex flex-col md:flex-row w-full items-center gap-4 md:gap-3">
+                <div class="w-full md:w-1/4 md:h-full flex flex-col border border-slate-400 rounded-sm bg-white shadow-md py-2 px-5">
                     <span class="text-xs text-slate-500">Pretensão</span>
                     <span class="text-sm md:text-base text-slate-800">Comprar</span>
                 </div>
-                <input class="w-full h-14 md:h-full text-sm border border-slate-500 rounded-sm bg-white hover:border-slate-600 shadow-md px-5" type="search" placeholder="Digite o condomínio, região, bairro ou cidade.">
+                <input class="w-full h-14 md:h-full text-sm border border-slate-400 rounded-sm bg-white hover:border-slate-600 shadow-md px-5" type="search" placeholder="Digite o condomínio, região, bairro ou cidade.">
+                <button class="px-16 h-full bg-stone-800 text-slate-50 rounded-sm">Buscar</button>
             </div>
         </div>
     </div>
