@@ -1,7 +1,7 @@
-from django.urls import path
-from . views import home_view, property_view
+from django.urls import path, include
+from . views import home_view, property_detail_template
 
 urlpatterns = [
-    path('', view=home_view, name='home'),
-    path('property/', view=property_view, name='property_details'),
+    path('', home_view, name='home'),
+    path('properties/<slug:slug>/', property_detail_template, name='property-detail-template'),
 ]

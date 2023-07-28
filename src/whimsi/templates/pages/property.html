@@ -1,10 +1,12 @@
 {% extends 'templates/base.html' %}
 
 {% block content %}
+
 <section class="w-full">
+    <!-- Title -->
     <div class="flex flex-col gap-2 pb-8 pt-12">
-        <p class="text-base text-gray-900 text-center">Cupecê, São Paulo</p>
-        <p class="text-5xl text-gray-900 text-center uppercase tracking-wide">Up Jardim Prudência</p>
+        <p class="text-base text-gray-900 text-center">{{property.address.neighborhood}} - {{property.address.city}}</p>
+        <p class="text-5xl text-gray-900 text-center uppercase tracking-wide">{{property.title}}</p>
     </div>
     <!-- Pictures -->
     <div class="flex overflow-x-scroll snap-start gap-2">
@@ -12,34 +14,34 @@
             <img class="w-full h-full object-cover" src="https://betaimages.lopes.com.br/realestate/med/REB334101/UP-Jd-Prudencia-Sao-Paulo-01-Fachada.png" />
         </div>
     </div>
-
+    <!-- Basic Information -->
     <div class="pb-12 pt-12 flex flex-col md:flex-row rounded-sm justify-center">
         <div class="flex flex-col gap-2 border-l border-r border-t border-b border-stone-400 shadow-md py-8 px-20">
             <p class="text-sm text-mono text-gray-600 uppercase">Área</p>
             <div class="flex flex-row gap-4 items-center">
                 <svg viewBox="0 0 24 24" width="24px" height="24px" role="img" xmlns="http://www.w3.org/2000/svg" aria-labelledby="rectangleIconTitle" stroke="#57534e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" color="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title id="rectangleIconTitle">Rectangle</title> <rect width="18" height="18" x="3" y="3"></rect> </g></svg>
-                <p class="text-lg tracking-tight">18 a 40m/2</p>
+                <p class="text-lg tracking-tight">{{property.area_sqm}}m/2</p>
             </div>
         </div>
         <div class="flex flex-col gap-2 border-r border-t border-b border-stone-400 shadow-md py-8 px-20">
             <p class="text-sm text-mono text-gray-600 uppercase">Número de Dormitórios</p>
             <div class="flex flex-row gap-4 items-center">
                 <svg fill="#57534e" width="24px" height="24px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 511.999 511.999" xml:space="preserve"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M494.565,208.205c-6.121,0-11.251,3.141-14.387,7.894l-24.288-36.256v-50.833c0-29.541-24.435-53.028-53.974-53.028 H110.082c-29.539,0-53.974,23.488-53.974,53.027v50.833l-24.338,36.256c-3.136-4.753-8.317-7.894-14.438-7.894 C7.65,208.203,0,216.054,0,225.738v155.883c-0.001,9.685,7.648,16.991,17.333,16.991h13.058v19.872 c0,9.684,7.851,17.534,17.534,17.534s17.534-7.851,17.534-17.534v-19.872h381.078v19.872c0,9.684,7.851,17.534,17.534,17.534 s17.534-7.851,17.534-17.534v-19.872h13.058c9.684,0,17.334-7.306,17.334-16.99V225.739 C511.999,216.055,504.249,208.205,494.565,208.205z M91.177,129.008c0-10.203,8.703-17.959,18.905-17.959h291.832 c10.203,0,18.905,7.756,18.905,17.959v38.151h-15.37c0.103-0.767,0.174-1.543,0.174-2.338c0-9.684-7.851-17.534-17.534-17.534 H123.908c-9.684,0-17.534,7.851-17.534,17.534c0,0.795,0.071,1.571,0.174,2.338H91.177V129.008z M83.855,201.941 c0.866,0.132,1.744,0.286,2.647,0.286h341.79l14.329,21.041H69.376L83.855,201.941z M476.93,363.543H35.067V258.337H476.93 V363.543z"></path> </g> </g> </g></svg>    
-                <p class="text-lg tracking-tight">2 Dormitórios</p>
+                <p class="text-lg tracking-tight">{{property.bedrooms}} Dormitório(s)</p>
             </div>
         </div>
         <div class="flex flex-col gap-2 border-r border-t border-b border-stone-400 shadow-md py-8 px-20">
             <p class="text-sm text-mono text-gray-600 uppercase">Número de Vagas</p>
             <div class="flex flex-row gap-4 items-center">
                  <svg fill="#57534e" width="32px" height="32px" viewBox="-1.5 0 19 19" xmlns="http://www.w3.org/2000/svg" class="cf-icon-svg"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"><path d="M.947 9.928a2.027 2.027 0 0 1 1.347-1.891l1.094-2.824a1.307 1.307 0 0 1 1.164-.797h6.896a1.307 1.307 0 0 1 1.164.797l1.095 2.824a2.027 2.027 0 0 1 1.346 1.891v2.85a.476.476 0 0 1-.475.475h-.671v1.477a.476.476 0 0 1-.475.475h-.978a.476.476 0 0 1-.475-.475v-1.477H4.021v1.477a.476.476 0 0 1-.475.475h-.978a.476.476 0 0 1-.475-.475v-1.477h-.671a.476.476 0 0 1-.475-.475zm3.14.006a1.03 1.03 0 1 0-1.03 1.03 1.03 1.03 0 0 0 1.03-1.03zM3.53 7.911h8.938l-.89-2.297a.228.228 0 0 0-.132-.09H4.552a.228.228 0 0 0-.13.09zm10.441 2.023a1.03 1.03 0 1 0-1.029 1.03 1.03 1.03 0 0 0 1.03-1.03z"></path></g></svg>
-                <p class="text-lg tracking-tight">2 Vagas</p>
+                <p class="text-lg tracking-tight">{{property.parking_lots}} Vaga(s)</p>
                 </div>
         </div>
         <div class="flex flex-col gap-2 border-r border-t border-b border-stone-400 shadow-md py-8 px-20">
             <p class="text-sm text-mono text-gray-600 uppercase">Preço</p>
             <div class="flex flex-row gap-4 items-center">
                 <svg width="24px" height="24px" viewBox="-1.5 0 33 33" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <title>wallet</title> <desc>Created with Sketch Beta.</desc> <defs> </defs> <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage"> <g id="Icon-Set" sketch:type="MSLayerGroup" transform="translate(-257.000000, -774.000000)" fill="#525252"> <path d="M285,793 L280,793 C279.448,793 279,793.448 279,794 L279,798 C279,798.553 279.448,799 280,799 L285,799 L285,804 C285,804.553 284.552,805 284,805 L260,805 C259.448,805 259,804.553 259,804 L259,785 L284,785 C284.552,785 285,785.447 285,786 L285,793 L285,793 Z M285,796 L285,797 L281,797 L281,796 L281,795 L285,795 L285,796 L285,796 Z M283,777 L283,783 L263.5,783 L283,777 L283,777 Z M285,783 L285,776 C285,775.447 284.764,775.141 284.25,774.938 C283.854,774.781 283.469,774.875 283,775 L257,783 L257,805 C257,806.104 257.896,807 259,807 L285,807 C286.104,807 287,806.104 287,805 L287,785 C287,783.896 286.104,783 285,783 L285,783 Z" id="wallet" sketch:type="MSShapeGroup"> </path> </g> </g> </g></svg>
-                <p class="text-lg tracking-tight">R$400000.00</p>
+                <p class="text-lg tracking-tight">R${{property.price|floatformat:"2"}}</p>
             </div>
         </div>
     </div>
@@ -49,7 +51,7 @@
     <div class="bg-stone-800">
     <div class="container flex flex-col px-12 pt-24 pb-24">
         <div class="flex flex-row gap-24 justify-center">
-            <div class="flex flex-col md:flex-row gap-32">
+            <div class="flex flex-col md:flex-row gap-24">
                 <section>
                     <div class="flex flex-col">
                         <div class="max-w-[150px] text-3xl text-slate-50 uppercase text-left mb-12">
@@ -57,17 +59,17 @@
                         </div>
                         <p class="uppercase tracking-tight text-stone-500 font-medium mb-2">Detalhes</p>
                         <div class="details flex flex-col text-white">
-                            <div class="flex flex-row py-2 gap-24 justify-between">
+                            <div class="flex flex-row py-2 gap-24 justify-between items-center">
                                 <span>Área</span>
-                                <span>4.5m/2</span>
+                                <span>{{property.area_sqm}}m/2</span>
                             </div>
-                            <div class="flex flex-row py-2 gap-24 justify-between">
+                            <div class="flex flex-row py-2 gap-24 justify-between items-center">
                                 <span>Dormitórios </span> 
-                                <span>3</span>
+                                <span>{{property.bedrooms}}</span>
                             </div> 
-                            <div class="flex flex-row py-2 gap-24 justify-between">
+                            <div class="flex flex-row py-2 gap-24 justify-between items-center">
                                 <span>Vagas Estacionamento</span>
-                                <span>2</span>
+                                <span>{{property.parking_lots}}</span>
                             </div>
                         </div>
                     </div>
@@ -76,13 +78,13 @@
                     <div class="">
                         <p class="uppercase tracking-tight text-stone-500 font-medium mb-4">Descrição</p>
                         <div class="text-white leading-5 max-w-md">
-                            In the pleasant commune of St-Prex, not far from shops, public transport and the lake, here's a 4.5-room duplex apartment that will delight a young couple or a small family.<br><br>It features a pleasant living room with fireplace opening onto a lake-view balcony, a closed kitchen and three bedrooms.<br><br>A cellar and a galetas complete this property.<br><br>Two outdoor parking spaces are allocated to this lot for 25'000.- per unit in addition.
+                            {{property.description}}
                         </div>
                     </div>
                 </section>
             </div>
             <section>
-                <div class="flex flex-col items-center bg-stone-200 px-6 py-6 gap-10">
+                <div class="flex flex-col items-center w-80 bg-stone-200 px-6 py-6 gap-10">
                     <div class="flex flex-col gap-4 justify-center text-center max-w-[200px]">
                         <p class="text-xl uppercase">Entre em contato</p>
                         <p class="text-sm text-slate-600">Preencha o formulário, iremos contatá-lo em breve.</p>

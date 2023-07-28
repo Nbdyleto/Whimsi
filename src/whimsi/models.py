@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 
 class Property(models.Model):
     property_id = models.AutoField(primary_key=True)
@@ -15,6 +16,12 @@ class Property(models.Model):
     status = models.CharField(max_length=8, choices=STATUS_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+    slug = models.SlugField(unique=True, blank=True, null=True)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(Property, self).save(*args, **kwargs)
 
     def __str__(self):
         return self.title

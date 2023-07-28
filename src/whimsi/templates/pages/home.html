@@ -29,8 +29,8 @@
         <div class="grid grid-cols-1 md:grid-cols-3 px-4 md:px-0 gap-12">
             {% for property in last_properties %}
             <div class="flex flex-col w-full h-fit rounded-sm pb-4">
-                <a href="#">
-               <div class="overflow-hidden w-full h-3/4 md:h-3/5">
+                <a href="{% url 'property-detail-template' slug=property.slug %}">
+                <div class="overflow-hidden w-full h-3/4 md:h-3/5">
                     <img class="w-full h-full object-cover" src="https://betaimages.lopes.com.br/realestate/sml/REB317225/highlinetatuape-saopaulo-tatuape-1-fachada.jpg">
                 </div>
                 <!-- Info -->
@@ -74,7 +74,7 @@
         <div class="grid grid-cols-1 md:grid-cols-3 grid-rows-3 md:grid-rows-2 px-4 md:px-0 gap-12">
             {% for highlighted_property in highlighted_properties %}
             <div class="flex flex-col w-full h-fit rounded-sm pb-4">
-                <a href="#">
+                <a href="{% url 'property-detail-template' slug=highlighted_property.property.slug %}">
                 <div class="overflow-hidden w-full h-3/4 md:h-3/5">
                     <img class="w-full h-full object-cover" src="https://betaimages.lopes.com.br/realestate/sml/REB317225/highlinetatuape-saopaulo-tatuape-1-fachada.jpg">
                 </div>
