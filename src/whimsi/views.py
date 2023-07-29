@@ -44,3 +44,7 @@ def search_template(request):
     }
 
     return render(request, 'templates/pages/properties.html', context)
+
+def contact_view(request):
+    context = {}
+    return render(request, 'templates/pages/contact.html', context)
