@@ -43,7 +43,7 @@
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
 			{% for property in properties %}
 			<div class="flex flex-col w-full h-fit rounded-sm">
-                <a href="">
+                <a href="{% url 'property-detail-template' slug=property.slug %}">
                 <div class="overflow-hidden w-full h-[550px] md:h-80">
 					{% if property.first_image.image %}
                     <img class="w-full h-full object-cover" src="{{ property.first_image.image.url}}">
