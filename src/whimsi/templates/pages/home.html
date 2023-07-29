@@ -14,14 +14,14 @@
     <div class="flex flex-col gap-32 h-full w-full items-center justify-center pt-20 container mx-auto">
         <h1 class="text-5xl text-white uppercase tracking-widest">Encontre o lar que reflete sua essência</h1>
         <div class="flex justify-center w-full bg-transparent md:bg-white md:shadow-md rounded-md py-4 px-5">
-            <div class="flex flex-col md:flex-row w-full items-center gap-4 md:gap-3">
+            <form action="{% url 'search-template' %}" method="get" class="flex flex-col md:flex-row w-full items-center gap-4 md:gap-3">
                 <div class="w-full md:w-1/4 md:h-full flex flex-col border border-slate-400 rounded-sm bg-white shadow-md py-2 px-5">
                     <span class="text-xs text-slate-500">Pretensão</span>
                     <span class="text-sm md:text-base text-slate-800">Comprar</span>
                 </div>
-                <input class="w-full h-14 md:h-full text-sm border border-slate-400 rounded-sm bg-white hover:border-slate-600 shadow-md px-5" type="search" placeholder="Digite o condomínio, região, bairro ou cidade.">
-                <button class="px-16 h-full bg-slate-800 text-slate-50 rounded-sm">Buscar</button>
-            </div>
+                <input type="search" name="q" aria-label="Search" class="w-full h-14 md:h-full text-sm border border-slate-400 rounded-sm bg-white hover:border-slate-600 shadow-md px-5" placeholder="Digite o condomínio, região, bairro ou cidade.">
+                <button type="submit" class="px-16 h-full bg-slate-800 text-slate-50 rounded-sm">Buscar</button>
+            </form>
         </div>
     </div>
 </section>

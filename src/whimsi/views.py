@@ -21,17 +21,8 @@ def home_view(request):
     
     return render(request, 'templates/pages/home.html', context)
 
-def properties_template(request):
-    properties = Property.objects.all()
-
-    for property in properties:
-        property.first_image = PropertyImage.objects.filter(property=property).first()
-
-    context = {'properties': properties}
-    return render(request, 'templates/pages/properties.html', context)
-
 def property_detail_template(request, slug):
-    api_url = f"http://127.0.0.1:8000/api/properties/{slug}/"
+    api_url = f'http://127.0.0.1:8000/api/properties/{slug}/'
     response = requests.get(api_url)
     property_data = response.json() if response.status_code == 200 else None
 
@@ -40,3 +31,16 @@ def property_detail_template(request, slug):
     }
 
     return render(request, 'templates/pages/property.html', context)
+
+def search_template(request):
+    if 'q' in request.GET:
+        api_url = f'http://127.0.0.1:8000/api/properties?q={request.GET["q"]}'
+        response = requests.get(api_url)
+        search_data = response.json() if response.status_code == 200 else None
+    else:
+        search_data = None
+    context = {
+        'properties': search_data
+    }
+
+    return render(request, 'templates/pages/properties.html', context)
