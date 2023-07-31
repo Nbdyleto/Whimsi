@@ -12,9 +12,13 @@
     </div>
     <!-- Pictures -->
     <div class="flex overflow-x-scroll snap-start gap-2">
+        {% for image in property.property_images %}
+        {% if image.image %}
         <div class="w-[500px] h-[400px] flex-none snap-center">
-            <img class="w-full h-full object-cover" src="https://betaimages.lopes.com.br/realestate/med/REB334101/UP-Jd-Prudencia-Sao-Paulo-01-Fachada.png" />
+            <img class="w-full h-full object-cover" src="{{image.image}}" />
         </div>
+        {% endif %}
+        {% endfor %}
     </div>
     <!-- Basic Information -->
     <div class="pb-12 pt-12 flex flex-col md:flex-row rounded-sm justify-center">

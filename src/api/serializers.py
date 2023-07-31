@@ -6,8 +6,14 @@ class PropertyAdressSerializer(serializers.ModelSerializer):
         model = PropertyAddress
         fields = '__all__'
 
+class PropertyImageSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = PropertyImage
+        fields = '__all__'
+
 class PropertySerializer(serializers.ModelSerializer):
     address = PropertyAdressSerializer(source='propertyaddress', read_only=True)
+    property_images = PropertyImageSerializer(source='propertyimage_set', many=True,read_only=True)
     first_image = serializers.SerializerMethodField()
 
     class Meta:
