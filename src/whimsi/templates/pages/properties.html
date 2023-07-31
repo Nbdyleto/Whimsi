@@ -7,7 +7,7 @@
 <main class="mt-6 mb-12">
 <section class="w-full">
 	<div class="container">
-		<div class="max-w-[150px] text-3xl text-slate-900 uppercase text-left">
+		<div class="max-w-[150px] text-4xl text-slate-900 uppercase text-left">
 			Explorar Imóveis
 		</div>
 	</div>
@@ -15,52 +15,10 @@
 
 <section class="w-full">
 	<div class="container">
-		<form action="" class="py-6">
-			<div class="flex flex-col md:flex-row gap-2">
-				<div class="relative z-0">
-					<select name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 pr-12 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" ">
-						<option value="">Região</option>	
-						<option value="south">Zona Sul</option>
-						<option value="north">Zona Norte</option>
-						<option value="west">Zona Oeste</option>
-						<option value="east">Zona Leste</option>
-					</select>
-				</div>
-				<div class="relative z-0">
-					<select name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 pr-12 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" ">
-						<option value="">Dormitórios</option>	
-						<option value="1">1 Dorms.</option>
-						<option value="2">2 Dorms.</option>
-						<option value="3">3 Dorms.</option>
-						<option value="4">4 Dorms.</option>
-					</select>
-				</div>
-				<div class="relative z-0">
-					<select name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 pr-12 text-left text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" ">
-						<option class="" value="">Tipo</option>	
-						<option value="0">Apartamento</option>
-						<option value="1">Casa</option>
-					</select>
-				</div>
-				<div class="relative z-0">
-					<select name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 pr-12 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" ">
-						<option value="">Valor Máx.</option>	
-						<option value="100000">100.000,00</option>
-						<option value="200000">200.000,00</option>
-						<option value="300000">300.000,00</option>
-						<option value="400000">400.000,00</option>
-						<option value="500000">500.000,00</option>
-						<option value="600000">600.000,00</option>
-						<option value="700000">700.000,00</option>
-						<option value="800000">800.000,00</option>
-						<option value="900000">900.000,00</option>
-						<option value="1000000">1.000.000,00</option>
-					</select>
-				</div>
-				<button class="relative px-20 py-3 z-0 bg-black text-white rounded-md text-sm">
-					Buscar
-				</button>
-			</div>
+		<form action="{% url 'search-template' %}" method="post" class="py-6 flex flex-row gap-2">
+			{% csrf_token %}
+			{{ filter_form.as_div }}
+			<input type="submit" value="Buscar" class="relative px-20 py-3 z-0 bg-black text-white rounded-md text-sm"></input>
 		</form>
 	</div>
 </section>
@@ -68,6 +26,7 @@
 <section class="w-full">
 	<div class="container">
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            {% if properties %}
 			{% for property in properties %}
 			<div class="flex flex-col w-full h-fit rounded-sm">
                 <a href="{% url 'property-detail-template' slug=property.slug %}">
@@ -103,6 +62,12 @@
                 </a>
             </div>
 			{% endfor %}
+            {% else %}
+            <div class="flex flex-col col-span-4 mt-4 gap-4">
+                <div class="text-4xl uppercase text-slate-800">Nenhum resultado encontrado</div>
+                <div class="text-slate-600">Tente mudar seus critérios de pesquisa</div>
+            </div>
+            {% endif %}
 		</div>
 	</div>
 </section>

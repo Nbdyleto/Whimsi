@@ -29,7 +29,7 @@
 					</a>
                 </div>
 			</div>
-			<form action="" method="post" class="w-full">
+			<form action="{% url 'contact' %}" method="post" class="w-full">
 				{% csrf_token %}
 				<div class="grid gap-y-8 grid-cols-1 md:grid-cols-2">
 					<div class="relative z-0">
