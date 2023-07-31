@@ -1,6 +1,9 @@
 import requests
 
 from django.shortcuts import render
+from django.http import HttpResponseRedirect
+from django.core.mail import EmailMessage
+from .forms import ContactForm
 from .models import Property, HighlightedProperty, PropertyImage
 
 def home_view(request):
@@ -45,5 +48,27 @@ def search_template(request):
     return render(request, 'templates/pages/properties.html', context)
 
 def contact_view(request):
-    context = {}
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+            # Process form data
+            name = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            phone = form.cleaned_data['phone']
+            message = form.cleaned_data['message']
+            agree_privacy = form.cleaned_data['agree_privacy']
+            content = f'{name} - Telefone: {phone} \n\n {message}'
+
+            EmailMessage(
+                f'Contact form from {name}',
+                content,
+                f'{email}', # from 
+                ['nobodyleto2004@protonmail.com'],
+                reply_to=[email]
+            ).send()
+            return HttpResponseRedirect('/')
+    else:
+        form = ContactForm()
+    context = {'form': form}
+    
     return render(request, 'templates/pages/contact.html', context)

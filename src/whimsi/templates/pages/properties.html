@@ -3,6 +3,7 @@
 {% block title %}Explorar Imóveis | Whimsi{% endblock title%}
 
 {% block content %}
+
 <main class="mt-6 mb-12">
 <section class="w-full">
 	<div class="container">
@@ -17,20 +18,44 @@
 		<form action="" class="py-6">
 			<div class="flex flex-col md:flex-row gap-2">
 				<div class="relative z-0">
-					<input type="" name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 px-3 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" " />
-					<label class="px-3 absolute top-4 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-slate-800 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-slate-700 peer-focus:bg-white peer-focus:z-10 peer-focus:mx-2 peer-focus:px-1">Região</label>
+					<select name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 pr-12 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" ">
+						<option value="">Região</option>	
+						<option value="south">Zona Sul</option>
+						<option value="north">Zona Norte</option>
+						<option value="west">Zona Oeste</option>
+						<option value="east">Zona Leste</option>
+					</select>
 				</div>
 				<div class="relative z-0">
-					<input type="" name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 px-3 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" " />
-					<label class="px-3 absolute top-4 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-slate-800 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-slate-700 peer-focus:bg-white peer-focus:z-10 peer-focus:mx-2 peer-focus:px-1">Dormitórios</label>
+					<select name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 pr-12 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" ">
+						<option value="">Dormitórios</option>	
+						<option value="1">1 Dorms.</option>
+						<option value="2">2 Dorms.</option>
+						<option value="3">3 Dorms.</option>
+						<option value="4">4 Dorms.</option>
+					</select>
 				</div>
 				<div class="relative z-0">
-					<input type="" name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 px-3 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" " />
-					<label class="px-3 absolute top-4 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-slate-800 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-slate-700 peer-focus:bg-white peer-focus:z-10 peer-focus:mx-2 peer-focus:px-1">Tipo de Imóvel</label>
+					<select name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 pr-12 text-left text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" ">
+						<option class="" value="">Tipo</option>	
+						<option value="0">Apartamento</option>
+						<option value="1">Casa</option>
+					</select>
 				</div>
 				<div class="relative z-0">
-					<input type="" name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 px-3 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" " />
-					<label class="px-3 absolute top-4 -z-10 origin-[0] -translate-y-6 scale-75 transform text-sm text-slate-800 duration-300 peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100 peer-focus:left-0 peer-focus:-translate-y-6 peer-focus:scale-75 peer-focus:text-slate-700 peer-focus:bg-white peer-focus:z-10 peer-focus:mx-2 peer-focus:px-1">Valor do Imóvel</label>
+					<select name="" class="peer block w-full rounded-md appearance-none border border-zinc-400 bg-transparent py-4 pr-12 text-sm text-slate-800 focus:border-slate-400 focus:outline-none focus:ring-0" placeholder=" ">
+						<option value="">Valor Máx.</option>	
+						<option value="100000">100.000,00</option>
+						<option value="200000">200.000,00</option>
+						<option value="300000">300.000,00</option>
+						<option value="400000">400.000,00</option>
+						<option value="500000">500.000,00</option>
+						<option value="600000">600.000,00</option>
+						<option value="700000">700.000,00</option>
+						<option value="800000">800.000,00</option>
+						<option value="900000">900.000,00</option>
+						<option value="1000000">1.000.000,00</option>
+					</select>
 				</div>
 				<button class="relative px-20 py-3 z-0 bg-black text-white rounded-md text-sm">
 					Buscar

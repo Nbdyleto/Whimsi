@@ -49,7 +49,6 @@ INTERNAL_IPS = [
     '127.0.0.1',
 ]
 
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -78,6 +77,14 @@ TEMPLATES = [
         },
     },
 ]
+
+# SMTP Settings
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'sandbox.smtp.mailtrap.io'
+EMAIL_PORT = '2525'
+EMAIL_HOST_USER = 'bfb0890a258f59'
+EMAIL_HOST_PASSWORD = 'efb282ba76cf70'
 
 WSGI_APPLICATION = 'cfehome.wsgi.application'
 
